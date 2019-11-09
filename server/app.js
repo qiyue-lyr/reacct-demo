@@ -34,13 +34,17 @@ router.post('/checkUser', async ctx=>{
             domain: 'localhost',  // 写cookie所在的域名
             path: '/',       // 写cookie所在的路径
             httpOnly: false,  // 是否只用于http请求中获取
-            overwrite: false  // 是否允许重写
+            overwrite: true  // 是否允许重写
         }       
         if(data.remember){
-            Object.assign(options,{maxAge: 1000*60*60*24})
+            Object.assign(options,{maxAge: 1000*60*60*24*2})
         }
         
-        ctx.cookies.set('isLogin',JSON.stringify(value),options)
+        if(!data.inCookie){
+            ctx.cookies.set('isLogin',JSON.stringify(value),options)
+        }
+        
+        
 
         res.status = true; 
         res.uid = result;    
