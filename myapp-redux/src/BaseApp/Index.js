@@ -37,7 +37,7 @@ class BaseApp extends React.Component {
   componentDidMount(){
     /* 使用thunk中间件，异步处理 */ 
     this.props.dispatch( getItems() )
-    this.props.dispatch( addUserStatus(values) )
+    values.uid && (values.inCookie = true) && this.props.dispatch( addUserStatus(values) )
   
   } 
 
