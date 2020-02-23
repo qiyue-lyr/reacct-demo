@@ -5,10 +5,12 @@
 
 ###  react-redux 目录下
 
-1. npm install
+1. npm i
 
 2. npm start
 
 ###  server 目录下
 
-1. node app.js
+1. npm i
+
+2. node app.js
